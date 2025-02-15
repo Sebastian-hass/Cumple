@@ -1,0 +1,192 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Torta */
+.cake {
+    position: relative;
+    width: 200px; /* Tamaño más pequeño para móviles */
+    height: 200px; /* Tamaño más pequeño para móviles */
+    transition: transform 1s ease-in-out;
+}
+
+/* Nombre flotante */
+.name {
+    position: absolute;
+    top: -40px; /* Ajuste para móviles */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem; /* Tamaño de fuente más pequeño para móviles */
+    font-weight: bold;
+    color: #ffd700; /* Color dorado */
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, -10px);
+    }
+}
+
+/* Capas de la torta */
+.cake-layer {
+    position: absolute;
+    background-color: #fff; /* Torta blanca */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.bottom-layer {
+    width: 100%;
+    height: 80px; /* Altura más pequeña para móviles */
+    bottom: 0;
+    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+    border: 2px solid #ffd700; /* Borde dorado */
+}
+
+.middle-layer {
+    width: 80%;
+    height: 60px; /* Altura más pequeña para móviles */
+    bottom: 80px; /* Ajuste para móviles */
+    left: 10%;
+    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+    border: 2px solid #ffd700; /* Borde dorado */
+}
+
+.top-layer {
+    width: 60%;
+    height: 50px; /* Altura más pequeña para móviles */
+    bottom: 140px; /* Ajuste para móviles */
+    left: 20%;
+    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+    border: 2px solid #ffd700; /* Borde dorado */
+}
+
+/* Velas */
+.candle {
+    position: absolute;
+    bottom: 100%;
+    width: 8px; /* Más pequeño para móviles */
+    height: 40px; /* Más pequeño para móviles */
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.candle::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Ajuste para móviles */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px; /* Más pequeño para móviles */
+    height: 16px; /* Más pequeño para móviles */
+    background-color: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+        box-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900;
+    }
+    100% {
+        transform: translateX(-50%) scale(0.9);
+        box-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+    }
+}
+
+/* Velas con números */
+.number-candle {
+    width: 20px; /* Más pequeño para móviles */
+    height: 50px; /* Más pequeño para móviles */
+    background-color: #ffd700; /* Color dorado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Tamaño de fuente más pequeño para móviles */
+    font-weight: bold;
+    color: #fff; /* Texto blanco */
+    border: 2px solid #ffd700; /* Borde dorado */
+    border-radius: 10px;
+}
+
+.number-candle::before {
+    display: none; /* Oculta la llama en las velas con números */
+}
+
+/* Invitación */
+.invitation {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px; /* Menos padding para móviles */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 90%; /* Ancho más pequeño para móviles */
+    max-width: 400px; /* Máximo ancho para pantallas grandes */
+}
+
+.invitation h1 {
+    margin-bottom: 15px; /* Menos margen para móviles */
+    font-size: 1.8rem; /* Tamaño de fuente más pequeño para móviles */
+}
+
+.invitation p {
+    font-size: 1rem; /* Tamaño de fuente más pequeño para móviles */
+    margin: 8px 0; /* Menos margen para móviles */
+}
+
+.map {
+    margin-top: 15px; /* Menos margen para móviles */
+}
+
+/* Clases utilitarias */
+.hidden {
+    display: none;
+}
+
+.show {
+    opacity: 1 !important;
+}
+
+.shrink {
+    transform: scale(0.5) translateY(-50%);
+}
+
+/* Canvas para el confeti */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
